@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>Icon</key>
+            <!-- هنا تحط كود الصورة (Base64) لو عايز أيقونة مخصصة، أو سيبها كدة والآيفون هياخد لقطة للموقع تلقائياً -->
+            <data>
+            </data>
+            <key>Label</key>
+            <string>تاج سلطان</string>
+            <key>LaunchInFullScreen</key>
+            <true/>
+            <key>PayloadDescription</key>
+            <string>إضافة أيقونة موقع تاج سلطان على الشاشة الرئيسية</string>
+            <key>PayloadDisplayName</key>
+            <string>تاج سلطان</string>
+            <key>PayloadIdentifier</key>
+            <string>com.tajsultan.webclip</string>
+            <key>PayloadType</key>
+            <string>com.apple.webclip.managed</string>
+            <key>PayloadUUID</key>
+            <string>9C66B992-E22A-4D7D-9D29-5D7A942E94A1</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>Precomposed</key>
+            <true/>
+            <key>URL</key>
+            <!-- ⚠️ استبدل الرابط اللي تحت ده برابط موقعك الحقيقي على GitHub Pages ⚠️ -->
+            <string>https://rtx261.github.io/RTX/</string>
+            <key>IsRemovable</key>
+            <true/>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>تثبيت اختصار موقع تاج سلطان على جهازك</string>
+    <key>PayloadDisplayName</key>
+    <string>ملف تعريف تاج سلطان</string>
+    <key>PayloadIdentifier</key>
+    <string>com.tajsultan.profile</string>
+    <key>PayloadOrganization</key>
+    <string>Taj Sultan</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>4B13A7F4-2391-4922-85D5-1F928C3D28E5</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>

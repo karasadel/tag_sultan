@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>تاج سلطان - تكوين ملف التعريف</title>
+    <!-- استدعاء مكتبة الأيقونات الشهيرة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* تصميم عصري للموقع متناسق مع الهواتف */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #f1c40f;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #aaaaaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* زرار التنزيل الرئيسي */
+        .btn-download {
+            background-color: #f1c40f;
+            color: #121212;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-download:active {
+            transform: scale(0.95);
+        }
+
+        /* نافذة التعليمات (الـ Modal) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: #252525;
+            width: 85%;
+            max-width: 350px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: right;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .modal-title {
+            color: #f1c40f;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .step-list li i {
+            color: #f1c40f;
+            margin-top: 3px;
+        }
+
+        .btn-close {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo"><i class="fas fa-crown"></i></div>
+        <h1>موقع تاج سلطان الرسمي</h1>
+        <p>لتثبيت التطبيق على جهازك بنجاح، اضغط على زر التنزيل أدناه واتبع التعليمات المقترحة.</p>
+        
+        <!-- زرار التشغيل -->
+        <button onclick="startIosDownload()" class="btn-download">
+            <i class="fas fa-download"></i> تحميل ملف التعريف
+        </button>
+    </div>
+
+    <!-- نافذة التعليمات الإرشادية للأيفون -->
+    <div id="iosGuideModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">
+                <i class="fas fa-info-circle"></i> خطوات التثبيت القادمة:
+            </div>
+            <ul class="step-list">
+                <li><i class="fas fa-check"></i> ستظهر لك رسالة تطلب "السماح" بتنزيل ملف التعريف، اضغط <b>السماح (Allow)</b>.</li>
+                <li><i class="fas fa-check"></i> بعد اكتمال التنزيل، اذهب مباشرة إلى <b>الإعدادات (Settings)</b> في هاتفك.</li>
+                <li><i class="fas fa-check"></i> ستجد خياراً جديداً في الأعلى باسم <b>"تم تنزيل ملف التعريف"</b> اضغط عليه ثم اضغط <b>تثبيت (Install)</b>.</li>
+            </ul>
+            <button onclick="closeModal()" class="btn-close">حسناً، فهمت</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. الدالة الذكية المسؤولة عن التنزيل الفوري
+        function startIosDownload() {
+            // إظهار نافذة التعليمات للمستخدم
+            document.getElementById('iosGuideModal').style.display = 'flex';
+            
+            // تنظيف الرابط الحالي وسحب المسار الصحيح أوتوماتيكياً
+            const currentUrl = window.location.href.split('?')[0].split('#')[0];
+            const cleanUrl = currentUrl.endsWith('/') ? currentUrl : currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+            
+            // تحويل المتصفح فوراً للملف المرفوع معك في نفس الفولدر
+            window.location.href = cleanUrl + 'taj_sultan.mobileconfig';
+        }
+
+        // دالة إغلاق النافذة
+        function closeModal() {
+            document.getElementById('iosGuideModal').style.display = 'none';
+        }
+
+        // 2. سكريبت الحماية ومنع نسخ محتوى الموقع (مثل موقع صاحبك)
+        document.addEventListener("DOMContentLoaded", function () {
+            const shield = (e) => {
+                if (e.target.tagName === 'A' || e.target.closest('a') || 
+                    e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                    return true;
+                }
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            };
+
+            // منع القوائم الجانبية والنسخ والقص والسحب
+            ['contextmenu', 'copy', 'cut', 'paste', 'selectstart', 'dragstart'].forEach(event => {
+                document.addEventListener(event, shield, true);
+            });
+
+            // منع التكبير بالإصبعين (Zoom)
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) e.preventDefault();
+            }, {passive: false});
+
+            // منع اختصارات لوحة المفاتيح الخاصة بالفحص (F12, Ctrl+U وغيرها)
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && ['u', 's', 'i', 'j', 'c'].includes(e.key.toLowerCase())) {
+                    e.preventDefault();
+                }
+                if (e.key === 'F12') e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
